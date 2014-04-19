@@ -1,0 +1,27 @@
+<html>
+<head>
+    <script src="Hesitate.js"></script>
+</head>
+<body>
+    <h1>Hesitate</h1>
+    <script>
+
+        console.log = function(message) { 
+            var args = Array.prototype.slice.call(arguments, 1);
+            var i = 0;
+            var text = message.replace(/%s/g, function() { return args[i++]; });
+            var entry = document.createElement('P');
+            entry.innerHTML = text;
+            document.getElementsByTagName('body')[0].appendChild(entry);
+        };
+
+        function stuff(a,b) { 
+            var h = new Hesitate(this, { backoff: true });
+            h.loiter(stuff, arguments);
+        };
+
+        stuff(1,2);
+
+    </script>
+</body>
+</html>
