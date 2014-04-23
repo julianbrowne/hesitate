@@ -29,10 +29,11 @@ _this_ is passed so that Hesitate has a reference to the calling function state.
 _options_ is an optional object containing:
 
     { 
-        max:        100,    // maximum attempts before giving up, or null to try for ever. default: 10
-        wait:       5000,   // intial wait between attempts in ms. default: 1000 ms
-        backoff:    true,   // whether to backoff (increase wait time after each attempt). default: false
-        scale:      2,      // scale multiplier for wait time at each attempt. default: 1.2 (20% increase)
+        max:        100,      // maximum attempts before giving up, or null to try for ever. default: 10
+        wait:       5000,     // intial wait between attempts in ms. default: 1000 ms
+        backoff:    true,     // whether to backoff (increase wait time after each attempt). default: false
+        scale:      2,        // scale multiplier for wait time at each attempt. default: 1.2 (20% increase)
+        logger:     function  // logging function for status messages. default: none
     }
 
 Calling _loiter_ on the Hesitate object sets up the retrys:
